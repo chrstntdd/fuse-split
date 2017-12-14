@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "lib": ["es7"],
+    "sourceMap": true,
+    "allowJs": true,
+    "module": "commonjs",
+    "jsx": "react",
+    "target": "es5",
+    "types": [
+      "faker",
+      "moment",
+      "react",
+      "react-dom",
+      "react-router",
+      "react-router-dom",
+      "recharts",
+      "node",
+      "express"
+    ],
+    "typeRoots": ["./node_modules/@types"]
+  },
+  "include": ["client/*.ts", "client/*.tsx"]
+}
