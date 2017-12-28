@@ -14,6 +14,7 @@ const {
 } = require('fuse-box');
 const path = require('path');
 const express = require('express');
+const purify = require('purify-css');
 
 const POSTCSS_PLUGINS = [
   require('cssnano')({
@@ -37,7 +38,6 @@ Sparky.task('build', () => {
     homeDir: './src',
     output: './dist/$name.js',
     log: true,
-    hash: isProduction,
     sourceMaps: !isProduction,
     target: 'browser@es5',
     experimentalFeatures: true,
@@ -117,12 +117,27 @@ Sparky.task('build', () => {
 Sparky.task('clean', () => Sparky.src('./dist/*').clean('./dist/'));
 Sparky.task('set-production-env', () => (isProduction = true));
 
+Sparky.task('purify-css', () => {
+  console.log('purifying...');
+  let content = ['**/src/*.tsx'];
+  let css = ['./dist/bundle.css'];
+  let options = {
+    output: 'dist/pure.css',
+    minify: true
+  };
+  purify(content, css, options, results => {
+    console.info('PURE AS HELL BUD', results);
+  });
+});
+
 /* yarn c:dev */
 Sparky.task('default', ['clean', 'build'], () =>
   console.info('Development server is live. 👏 GET 👏 TO 👏WORK!')
 );
 
 /* yarn c:prod */
-Sparky.task('prod', ['clean', 'set-production-env', 'build'], () =>
-  console.info('🤠  READY FOR PROD, FAM 🤠')
+Sparky.task(
+  'prod',
+  ['clean', 'set-production-env', 'build', 'purify-css'],
+  () => console.info('🤠  READY FOR PROD, FAM 🤠')
 );
