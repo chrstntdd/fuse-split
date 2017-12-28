@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 
 import CustomerChart from './CustomerChart';
+import CustomerScatterPlot from './CustomerScatterPlot'
 
 const About = () => {
   return (
@@ -9,6 +10,7 @@ const About = () => {
       <h2>This is the about page.</h2>
       <Link className="tc near-white" to="/contact">
         <CustomerChart />
+        <CustomerScatterPlot />
       </Link>
     </div>
   );

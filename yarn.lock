@@ -1072,9 +1072,9 @@ function-bind@^1.0.2:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
 
-fuse-box@^3.0.0-next.36:
-  version "3.0.0-next.36"
-  resolved "https://registry.yarnpkg.com/fuse-box/-/fuse-box-3.0.0-next.36.tgz#20a14ee11325fdc6458101bf02c05681b2573b3f"
+fuse-box@3.0.0-next.45:
+  version "3.0.0-next.45"
+  resolved "https://registry.yarnpkg.com/fuse-box/-/fuse-box-3.0.0-next.45.tgz#8b7f128ff7d599b09487f0c5718f9f59f6faf240"
   dependencies:
     acorn "^5.1.2"
     acorn-jsx "^4.0.1"

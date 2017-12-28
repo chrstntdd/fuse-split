@@ -48,38 +48,38 @@ Sparky.task('build', () => {
         SassPlugin(),
         PostCSSPlugin(POSTCSS_PLUGINS),
         !isProduction &&
-          CSSResourcePlugin({
-            inline: true
-          }),
+        CSSResourcePlugin({
+          inline: true
+        }),
         isProduction
           ? CSSPlugin({
-              group: 'bundle.css',
-              inject: false,
-              outFile: `dist/bundle.css`
-            })
+            group: 'bundle.css',
+            inject: false,
+            outFile: `dist/bundle.css`
+          })
           : CSSPlugin()
       ],
       SVGPlugin(),
       isProduction
         ? WebIndexPlugin({
-            template: './src/index.html',
-            path: '/dist',
-            title: 'TEST'
-          })
+          template: './src/index.html',
+          path: '/dist',
+          title: 'TEST'
+        })
         : WebIndexPlugin({
-            template: './src/index.html',
-            title: 'TEST'
-          }),
+          template: './src/index.html',
+          title: 'TEST'
+        }),
       ImageBase64Plugin({
         useDefault: true
       }),
       isProduction &&
-        QuantumPlugin({
-          removeExportsInterop: false,
-          bakeApiIntoBundle: 'vendor',
-          uglify: true,
-          treeshake: true
-        })
+      QuantumPlugin({
+        removeExportsInterop: false,
+        bakeApiIntoBundle: 'vendor',
+        uglify: false,
+        treeshake: false
+      })
     ]
   });
 
